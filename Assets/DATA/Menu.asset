@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095629fa88a7ce2468c6671670792181, type: 3}
+  m_Name: Menu
+  m_EditorClassIdentifier: 
+  backGround: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  buttonsImage:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  textsEnglish:
+  - Play
+  - Store
+  - Stats
+  - Options
+  - Coins
+  - Volume
+  - Brightness
+  - Back
+  textsSpanish:
+  - Jugar
+  - Tienda
+  - Estadisticas
+  - Opciones
+  - Monedas .-.
+  - Volumen
+  - Brillo
+  - Atras
