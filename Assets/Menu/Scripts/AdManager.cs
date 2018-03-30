@@ -31,7 +31,7 @@ public class AdManager : MonoBehaviour {
 	public void Start () {
 
 #if UNITY_ANDROID
-		string appId = appId.value;
+		string appId = appID.value;
 #else
 		string appId = "unexpected_platform";
 #endif
