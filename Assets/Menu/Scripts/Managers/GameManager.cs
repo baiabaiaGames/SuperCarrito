@@ -16,14 +16,14 @@
 		// Increase the counter variable
 		public void IncrementCounter () {
 			Counter++;
-			UIManager.Instance.UpdatePointsText ();
+			UIDemo.Instance.UpdatePointsText ();
 		}
 
 		// Restart´s the Game
 		public void RestartGame () {
 			// PlayGamesManager.AddScoreToLeaderBoard (GPGSIds.leaderboard_leaderboard, Counter);
 			Counter = 0;
-			UIManager.Instance.UpdatePointsText ();
+			UIDemo.Instance.UpdatePointsText ();
 		}
 
 	}

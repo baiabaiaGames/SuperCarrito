@@ -3,9 +3,9 @@
 	using UnityEngine.UI;
 	using UnityEngine;
 
-	public class UIManager : MonoBehaviour {
+	public class UIDemo : MonoBehaviour {
 
-		public static UIManager Instance { get; private set; }
+		public static UIDemo Instance { get; private set; }
 
 		private void Start () {
 			Instance = this;
