@@ -21,7 +21,7 @@
 
 		// Restart´s the Game
 		public void RestartGame () {
-			// PlayGamesManager.AddScoreToLeaderBoard (GPGSIds.leaderboard_leaderboard, Counter);
+			PlayGamesManager.AddScoreToLeaderBoard (GPGSIds.leaderboard_leaderboard, Counter);
 			Counter = 0;
 			UIDemo.Instance.UpdatePointsText ();
 		}
