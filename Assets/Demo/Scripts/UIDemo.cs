@@ -30,7 +30,7 @@
 		// Unlock an Achivement
 		public void Unlock () {
 			//Pass the Achivement you want to Unlock from the GPSIds Script
-			PlayGamesManager.UnlockAchivement (GPGSIds.achievement_test_achivement_1);
+			PlayGamesManager.UnlockAchivement (GPGSIds.achievement_test_achivement1);
 		}
 
 		// Show Google Play Games Achivements in the UI
