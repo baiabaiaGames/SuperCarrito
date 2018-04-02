@@ -6,7 +6,8 @@ using UnityEngine.Purchasing;
 // Deriving the Purchaser class from IStoreListener enables it to receive messages from Unity Purchasing.
 public class IAPManager : MonoBehaviour, IStoreListener {
 
-	public static IAPManager Instance { set; get; }
+	private static IAPManager Instance;
+	public static IAPManager _Instance;
 
 	private static IStoreController m_StoreController; // The Unity Purchasing system.
 	private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
@@ -26,7 +27,13 @@ public class IAPManager : MonoBehaviour, IStoreListener {
 	public static string PRODUCT_NO_ADS = "noads";
 
 	private void Awake () {
-		Instance = this;
+		if (_Instance != null && _Instance != this) {
+			Destroy (this.gameObject);
+			return;
+		}
+
+		_Instance = this;
+		DontDestroyOnLoad (this.gameObject);
 	}
 
 	private void Start () {

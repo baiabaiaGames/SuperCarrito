@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18cdc4509f6b5364da6376bc50884210, type: 3}
-  m_Name: 100Coins
+  m_Script: {fileID: 11500000, guid: 4335fefab42529149b75e4fe0d70f66d, type: 3}
+  m_Name: Player Profile
   m_EditorClassIdentifier: 
-  id: Coins 100
-  quantity: 100
-  price_rm: $ 1.99
+  playerName: Unkown
+  highScore: 0
+  coins: 0

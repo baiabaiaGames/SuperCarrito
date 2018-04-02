@@ -40,6 +40,11 @@ public class AdManager : MonoBehaviour {
 		MobileAds.Initialize (appId);
 
 		RequestBanner ();
+		RequestInterstitial ();
+	}
+
+	private void Update () {
+		ShowInterstitial ();
 	}
 
 	// Returns an ad request with custom ad targeting.
@@ -71,9 +76,7 @@ public class AdManager : MonoBehaviour {
 		}
 
 		// Create a 320x50 banner at the top of the screen.
-		BannerView requestBanner = new BannerView (adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
-
-		this.bannerView = requestBanner;
+		bannerView = new BannerView (adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
 
 		// Register for ad events.
 		this.bannerView.OnAdLoaded += this.HandleAdLoaded;
@@ -102,9 +105,7 @@ public class AdManager : MonoBehaviour {
 		}
 
 		// Create an interstitial.
-		InterstitialAd requestInterstitial = new InterstitialAd (adUnitId);
-
-		this.interstitial = requestInterstitial;
+		interstitial = new InterstitialAd (adUnitId);
 
 		// Register for ad events.
 		this.interstitial.OnAdLoaded += this.HandleInterstitialLoaded;
@@ -115,6 +116,25 @@ public class AdManager : MonoBehaviour {
 
 		// Load an interstitial ad.
 		this.interstitial.LoadAd (this.CreateAdRequest ());
+	}
+
+	private void RequestRewardBasedVideo () {
+#if UNITY_EDITOR
+		string adUnitId = "unused";
+#elif UNITY_ANDROID
+		string adUnitId = rewardedVideoID.value;
+#else
+		string adUnitId = "unexpected_platform";
+#endif
+
+		this.rewardBasedVideo.LoadAd (this.CreateAdRequest (), adUnitId);
+	}
+	private void ShowRewardBasedVideo () {
+		if (this.rewardBasedVideo.IsLoaded ()) {
+			this.rewardBasedVideo.Show ();
+		} else {
+			MonoBehaviour.print ("Reward based video ad is not ready yet");
+		}
 	}
 
 	public void ShowInterstitial () {

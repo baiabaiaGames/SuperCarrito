@@ -8,9 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18cdc4509f6b5364da6376bc50884210, type: 3}
-  m_Name: 50Coins
+  m_Script: {fileID: 11500000, guid: 0f3742f34f11c5140bd55a6039d34a32, type: 3}
+  m_Name: RewardedVideoID
   m_EditorClassIdentifier: 
-  id: Coins 50
-  quantity: 50
-  price_rm: $ 0.99
+  value: ca-app-pub-8095517150828522/6341361237

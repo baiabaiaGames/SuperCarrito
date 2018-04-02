@@ -8,7 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3742f34f11c5140bd55a6039d34a32, type: 3}
-  m_Name: AppID
-  m_EditorClassIdentifier: 
-  value: ca-app-pub-8095517150828522~2813179769
+  m_Script: {fileID: 0}
+  m_Name: Player Profile
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerProfile
+  playerName: 
+  highScore: 0
+  coins: 0
