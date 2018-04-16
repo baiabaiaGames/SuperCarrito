@@ -41,13 +41,14 @@ public class Menu : MonoBehaviour {
 
 		backGround.sprite = menu.backGround;
 
-		for (int i = 0; i < menu.buttonsImage.Length; i++) {
-			buttonsImage[i].sprite = menu.buttonsImage[i];
-			buttonsImage[i].SetNativeSize ();
-		}
+		for (int i = 0; i < menu.menuData.Length; i++) {
+			if (menu.menuData[i].buttonImage) {
+				buttonsImage[i].sprite = menu.menuData[i].buttonImage;
+				buttonsImage[i].SetNativeSize ();
+			}
 
-		for (int i = 0; i < menu.textsEnglish.Length; i++) {
-			texts[i].text = menu.textsEnglish[i];
+			if (menu.menuData[i].textEnglish != null)
+				texts[i].text = menu.menuData[i].textEnglish;
 		}
 
 	}
@@ -77,15 +78,17 @@ public class Menu : MonoBehaviour {
 
 		switch (lenguage.value) {
 			case 0:
-				for (int i = 0; i < menu.textsEnglish.Length; i++) {
-					texts[i].text = menu.textsEnglish[i];
+				for (int i = 0; i < menu.menuData.Length; i++) {
+					if (menu.menuData[i].textEnglish != null)
+						texts[i].text = menu.menuData[i].textEnglish;
 				}
 				Debug.Log ("ingles");
 				break;
 
 			case 1:
-				for (int i = 0; i < menu.textsSpanish.Length; i++) {
-					texts[i].text = menu.textsSpanish[i];
+				for (int i = 0; i < menu.menuData.Length; i++) {
+					if (menu.menuData[i].textSpanish != null)
+						texts[i].text = menu.menuData[i].textSpanish;
 				}
 				Debug.Log ("español");
 				break;

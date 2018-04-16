@@ -12,28 +12,25 @@ MonoBehaviour:
   m_Name: Menu
   m_EditorClassIdentifier: 
   backGround: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  buttonsImage:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  textsEnglish:
-  - Play
-  - Store
-  - Stats
-  - Options
-  - Coins
-  - Volume
-  - Brightness
-  - Back
-  textsSpanish:
-  - Jugar
-  - Tienda
-  - Estadisticas
-  - Opciones
-  - Monedas .-.
-  - Volumen
-  - Brillo
-  - Atras
+  menuData:
+  - textEnglish: Play
+    textSpanish: Jugar
+    buttonImage: {fileID: 0}
+  - textEnglish: Store
+    textSpanish: Tienda
+    buttonImage: {fileID: 0}
+  - textEnglish: Stats
+    textSpanish: Estadisticas
+    buttonImage: {fileID: 0}
+  - textEnglish: Options
+    textSpanish: Opciones
+    buttonImage: {fileID: 0}
+  - textEnglish: Coins
+    textSpanish: Monedas .-.
+    buttonImage: {fileID: 0}
+  - textEnglish: Volume
+    textSpanish: Volumen
+    buttonImage: {fileID: 0}
+  - textEnglish: Back
+    textSpanish: Atras
+    buttonImage: {fileID: 0}
