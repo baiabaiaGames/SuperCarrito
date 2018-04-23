@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23764115562841500}
   - component: {fileID: 33344664167464774}
   - component: {fileID: 114965778089428320}
+  - component: {fileID: 114432376616897140}
   - component: {fileID: 64749538240160756}
   m_Layer: 0
   m_Name: Hall_1
@@ -111,6 +112,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 0
+--- !u!114 &114432376616897140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1145873993189198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c215a8b2cc8ad0479951a0db39ff0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oDirections: 0
 --- !u!114 &114965778089428320
 MonoBehaviour:
   m_ObjectHideFlags: 1
