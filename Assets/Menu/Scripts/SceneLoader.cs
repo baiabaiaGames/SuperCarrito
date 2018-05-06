@@ -1,31 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
 
-	[SerializeField] private string[] levelNames;
+	[SerializeField] public string scene;
 	private ScreenWipe screenWipe;
 	private int nextLevelIndex;
+
+	IEnumerator loadSceneCoroutine;
 
 	private void Awake () {
 		screenWipe = FindObjectOfType<ScreenWipe> ();
 		DontDestroyOnLoad (gameObject);
-		StartCoroutine (LoadNextLevel ());
+
+		LoadScene ();
 	}
 
-	private IEnumerator LoadNextLevel () {
-		nextLevelIndex++;
-		if (nextLevelIndex >= levelNames.Length)
-			nextLevelIndex = 0;
+	public void LoadScene () {
+		if (loadSceneCoroutine != null)
+			StopCoroutine (loadSceneCoroutine);
 
-		string nextLevelName = levelNames[nextLevelIndex];
+		loadSceneCoroutine = LoadSceneCoroutine (scene);
+		StartCoroutine (loadSceneCoroutine);
+	}
 
+	public IEnumerator LoadSceneCoroutine (string levelName) {
 		screenWipe.ToggleWipe (true);
 		while (!screenWipe.isDone)
 			yield return null;
 
-		AsyncOperation operation = SceneManager.LoadSceneAsync (nextLevelName);
+		AsyncOperation operation = SceneManager.LoadSceneAsync (levelName);
 		while (!operation.isDone)
 			yield return null;
 
