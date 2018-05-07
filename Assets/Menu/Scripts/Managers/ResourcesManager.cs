@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Single Instances/ Resources Manager")]
 public class ResourcesManager : ScriptableObject {
 
-    public Items[] all_items;
+    public SingleUse[] all_items;
     Dictionary<string, int> i_dict = new Dictionary<string, int> ();
 
     public void Init () {
@@ -23,8 +23,8 @@ public class ResourcesManager : ScriptableObject {
         }
     }
 
-    public Items GetItem (string id) {
-        Items retVal = null;
+    public SingleUse GetItem (string id) {
+        SingleUse retVal = null;
         int index = -1;
 
         if (i_dict.TryGetValue (id, out index))
