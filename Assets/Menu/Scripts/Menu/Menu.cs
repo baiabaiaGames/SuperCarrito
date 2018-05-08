@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class Menu : MonoBehaviour {
 
 	#region IdItems
@@ -32,46 +36,32 @@ public class Menu : MonoBehaviour {
 	public StandarMenu menu;
 	[SerializeField] private GameObject options;
 	[SerializeField] private GameObject mainMenu;
-	[SerializeField] private Image[] buttonsImage;
 	[SerializeField] private Text[] texts;
 	[SerializeField] private Dropdown lenguage;
 
 	[SerializeField] private Image backGround;
-	void Start () {
+
+	[SerializeField] private GameObject exitMenu;
+	void Awake () {
 
 		backGround.sprite = menu.backGround;
+		exitMenu.SetActive (false);
 
 		for (int i = 0; i < menu.menuData.Length; i++) {
-			if (menu.menuData[i].buttonImage) {
-				buttonsImage[i].sprite = menu.menuData[i].buttonImage;
-				buttonsImage[i].SetNativeSize ();
-			}
-
 			if (menu.menuData[i].textEnglish != null)
 				texts[i].text = menu.menuData[i].textEnglish;
 		}
 
 	}
-	public void PlayButton (string name) {
-		SceneManager.LoadScene (name);
-	}
-	public void StoreButton () {
-		Debug.Log ("store");
-	}
-	public void StatsButton () {
-		Debug.Log ("stats");
-	}
-	public void OptionsButton () {
-		options.SetActive (true);
-		mainMenu.SetActive (false);
-	}
-	public void CoinsButton () {
-		Debug.Log ("coins");
-	}
 
-	public void ReturnToMenu () {
-		options.SetActive (false);
-		mainMenu.SetActive (true);
+	void Update () {
+#if UNITY_EDITOR
+		if (Input.GetKeyDown ("escape") && exitMenu.activeInHierarchy == false) {
+			exitMenu.SetActive (true);
+		} else if (Input.GetKeyDown ("escape") && exitMenu.activeInHierarchy == true) {
+			exitMenu.SetActive (false);
+		}
+#endif
 	}
 
 	public void Lenguage () {
@@ -96,4 +86,11 @@ public class Menu : MonoBehaviour {
 
 	}
 
+	public void Quit () {
+#if UNITY_EDITOR
+		EditorApplication.isPlaying = false;
+#else
+		Application.Quit ();
+#endif
+	}
 }
