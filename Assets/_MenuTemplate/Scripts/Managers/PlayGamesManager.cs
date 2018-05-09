@@ -1,6 +1,4 @@
-﻿namespace MenuTemplate {
-
-    using System.Collections.Generic;
+﻿    using System.Collections.Generic;
     using System;
     using GooglePlayGames.BasicApi.SavedGame;
     using GooglePlayGames.BasicApi;
@@ -74,4 +72,3 @@
         }
         #endregion /Leaderboards
     }
-}
