@@ -5,13 +5,16 @@ using UnityEngine.UI;
 public class ScreenWipe : MonoBehaviour {
 
 	[SerializeField][Range (0.1f, 3f)] private float wipeSpeed = 1f;
-	private Animator transitionAnim;
 	private enum WipeMode { NotBlocked, WipingNotBlocked, Blocked, WipingToBlocked }
 	private WipeMode wipeMode = WipeMode.NotBlocked;
 	public bool isDone { get; private set; }
 
+	Animator transitionAnim;
+	GameObject transitionObject;
+
 	private void Awake () {
 		transitionAnim = GetComponentInChildren<Animator> ();
+		transitionObject = transitionAnim.gameObject;
 		DontDestroyOnLoad (gameObject);
 
 		transitionAnim.SetFloat ("Time", wipeSpeed);
@@ -37,6 +40,7 @@ public class ScreenWipe : MonoBehaviour {
 	}
 
 	private IEnumerator WipeToBlocked () {
+		transitionObject.SetActive (true);
 		transitionAnim.SetBool ("Start", true);
 		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
 		isDone = true;
@@ -48,6 +52,7 @@ public class ScreenWipe : MonoBehaviour {
 		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
 		isDone = true;
 		wipeMode = WipeMode.NotBlocked;
+		transitionObject.SetActive (false);
 	}
 
 	[ContextMenu ("Block")] private void Block () { ToggleWipe (true); }
