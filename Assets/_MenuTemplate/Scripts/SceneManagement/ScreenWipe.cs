@@ -46,7 +46,7 @@ public class ScreenWipe : MonoBehaviour {
 	}
 
 	private IEnumerator WipeToNotBlocked () {
-		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length + 3f);
+		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
 		isDone = true;
 		wipeMode = WipeMode.NotBlocked;
 	}
