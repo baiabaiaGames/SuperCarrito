@@ -15,22 +15,15 @@ MonoBehaviour:
   menuData:
   - textEnglish: Play
     textSpanish: Jugar
-    buttonImage: {fileID: 0}
   - textEnglish: Store
     textSpanish: Tienda
-    buttonImage: {fileID: 0}
   - textEnglish: Stats
     textSpanish: Estadisticas
-    buttonImage: {fileID: 0}
   - textEnglish: Options
     textSpanish: Opciones
-    buttonImage: {fileID: 0}
   - textEnglish: Coins
     textSpanish: Monedas .-.
-    buttonImage: {fileID: 0}
   - textEnglish: Volume
     textSpanish: Volumen
-    buttonImage: {fileID: 0}
   - textEnglish: Back
     textSpanish: Atras
-    buttonImage: {fileID: 0}

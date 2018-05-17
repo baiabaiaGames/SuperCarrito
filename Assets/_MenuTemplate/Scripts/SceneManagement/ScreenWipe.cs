@@ -10,11 +10,9 @@ public class ScreenWipe : MonoBehaviour {
 	public bool isDone { get; private set; }
 
 	Animator transitionAnim;
-	GameObject transitionObject;
 
 	private void Awake () {
 		transitionAnim = GetComponentInChildren<Animator> ();
-		transitionObject = transitionAnim.gameObject;
 		DontDestroyOnLoad (gameObject);
 
 		transitionAnim.SetFloat ("Time", wipeSpeed);
@@ -40,19 +38,17 @@ public class ScreenWipe : MonoBehaviour {
 	}
 
 	private IEnumerator WipeToBlocked () {
-		transitionObject.SetActive (true);
 		transitionAnim.SetBool ("Start", true);
 		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
 		isDone = true;
 		wipeMode = WipeMode.Blocked;
+		transitionAnim.SetBool ("Start", false);
 	}
 
 	private IEnumerator WipeToNotBlocked () {
-		transitionAnim.SetBool ("Start", false);
 		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
 		isDone = true;
 		wipeMode = WipeMode.NotBlocked;
-		transitionObject.SetActive (false);
 	}
 
 	[ContextMenu ("Block")] private void Block () { ToggleWipe (true); }

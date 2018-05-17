@@ -11,12 +11,21 @@ public class SceneLoader : MonoBehaviour {
 	private int nextLevelIndex;
 
 	IEnumerator loadSceneCoroutine;
+	IEnumerator waitForVideo;
 
 	private void Awake () {
 		screenWipe = FindObjectOfType<ScreenWipe> ();
 		DontDestroyOnLoad (gameObject);
 
-		LoadScene ();
+		WaitForVideo ();
+	}
+
+	public void WaitForVideo () {
+		if (waitForVideo != null)
+			StopCoroutine (waitForVideo);
+
+		waitForVideo = WaitForVideoCourutine ();
+		StartCoroutine (waitForVideo);
 	}
 
 	public void LoadScene () {
@@ -25,6 +34,12 @@ public class SceneLoader : MonoBehaviour {
 
 		loadSceneCoroutine = LoadSceneCoroutine (scene);
 		StartCoroutine (loadSceneCoroutine);
+	}
+
+	public IEnumerator WaitForVideoCourutine () {
+		yield return new WaitForSeconds (11f);
+
+		LoadScene ();
 	}
 
 	public IEnumerator LoadSceneCoroutine (string levelName) {
