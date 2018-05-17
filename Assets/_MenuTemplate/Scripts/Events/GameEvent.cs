@@ -15,7 +15,7 @@ public class GameEvent : ScriptableObject {
         listeners.Remove (l);
     }
 
-    public void Raise (GameEventListener l) {
+    public void Raise () {
         for (int i = 0; i < listeners.Count; i++) {
             listeners[i].Response ();
         }
