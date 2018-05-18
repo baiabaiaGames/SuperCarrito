@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 	public GameEvent onGamePlaying;
 	public GameEvent onGameReset;
 
+	public bool isPlaying { private set; get; }
+
 	private void Awake () {
 
 	}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class ScreenWipe : MonoBehaviour {
 
@@ -39,13 +40,15 @@ public class ScreenWipe : MonoBehaviour {
 
 	private IEnumerator WipeToBlocked () {
 		transitionAnim.SetBool ("Start", true);
-		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
+		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length / 2f);
 		isDone = true;
 		wipeMode = WipeMode.Blocked;
+		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
 		transitionAnim.SetBool ("Start", false);
 	}
 
 	private IEnumerator WipeToNotBlocked () {
+
 		yield return new WaitForSeconds (transitionAnim.GetCurrentAnimatorStateInfo (0).length + transitionAnim.GetCurrentAnimatorStateInfo (0).length);
 		isDone = true;
 		wipeMode = WipeMode.NotBlocked;
