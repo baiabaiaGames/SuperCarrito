@@ -3,29 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class SceneLoader : MonoBehaviour {
 
 	[SerializeField] public string scene;
+	[SerializeField] public float delay;
 	private ScreenWipe screenWipe;
 	private int nextLevelIndex;
 
 	IEnumerator loadSceneCoroutine;
-	IEnumerator waitForVideo;
 
 	private void Awake () {
 		screenWipe = FindObjectOfType<ScreenWipe> ();
 		DontDestroyOnLoad (gameObject);
 
-		WaitForVideo ();
-	}
-
-	public void WaitForVideo () {
-		if (waitForVideo != null)
-			StopCoroutine (waitForVideo);
-
-		waitForVideo = WaitForVideoCourutine ();
-		StartCoroutine (waitForVideo);
+		LoadScene ();
 	}
 
 	public void LoadScene () {
@@ -36,14 +29,15 @@ public class SceneLoader : MonoBehaviour {
 		StartCoroutine (loadSceneCoroutine);
 	}
 
-	public IEnumerator WaitForVideoCourutine () {
-		yield return new WaitForSeconds (11f);
-
-		LoadScene ();
-	}
-
 	public IEnumerator LoadSceneCoroutine (string levelName) {
+		float d = 0;
+		while (d < delay) {
+			d += Time.deltaTime;
+			yield return null;
+		}
+		
 		screenWipe.ToggleWipe (true);
+
 		while (!screenWipe.isDone)
 			yield return null;
 

@@ -584,6 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Menu
+  delay: 10.5
 --- !u!4 &967894699
 Transform:
   m_ObjectHideFlags: 0
